@@ -1,0 +1,54 @@
+{
+  "name": "LluchService",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+     "@sap/cds": "^9.4.4",
+    "@sap-cloud-sdk/http-client": "^3.18.0",
+    "@sap/xsenv": "^6.0.0",
+    "@sap/xssec": "~4.10.0",
+    "express": "^4",
+    "@sap/cds-odata-v2-adapter-proxy":"1.9.21"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^9.4.3",
+    "mbt": "^1.2.34",
+    "rimraf": "^6.0.1"
+  },
+  "scripts": {
+    "deploy:cf": "mbt build -j=8 --mtar app.mtar && cf deploy mta_archives/app.mtar -f --strategy blue-green --skip-testing-phase ",
+    "start": "cds-serve",
+    "jest": "npx jest",
+    "watch": "cds watch --profile hybrid",
+    "watch-launchwf": "cds watch --open launchwf/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "[hybrid]": {
+        "auth": "xsuaa"
+      },
+      "connectivity": true,
+      "destination": {
+        "kind": "destination"
+      },
+      "destino_c4c": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "destino_c4c",
+          "forwardAuthToken": true,
+          "requestTimeout": 300000
+        },
+        "csrf": true,
+        "csrfInBatch": true,
+        "pool": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    }
+  }
+}

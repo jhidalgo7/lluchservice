@@ -1,0 +1,217 @@
+### Servicio Node SalesArea
+POST http://localhost:4004/SalesAreaDeterAction
+Content-Type: application/json
+
+{
+  "id": "ab746675-cf08-4bee-b6e4-0e8775c5cd8a",
+  "specversion": "0.2",
+  "type": "sap.crm.custom.event.ORGVENTASBTP",
+  "source": "686e24c906be012e7bb337b3",
+  "subject": "381b4563-befd-11f0-b888-e73bde9cd0ae",
+  "time": "2025-11-11T12:52:08.402227326Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "currentImage": {
+      "id": "381b4563-befd-11f0-b888-e73bde9cd0ae",
+      "displayId": "71",
+      "subject": "6",
+      "priority": "03",
+      "origin": "MANUAL_DATA_ENTRY",
+      "caseType": "ZREG",
+      "isRecommendedCaseType": false,
+      "statusSchema": "ZR",
+      "partyScheme": "CASE_GENERAL",
+      "status": "01",
+      "escalationStatus": "NOT_ESCALATED",
+      "lifeCycleStatus": "OPEN",
+      "isRecommendedCommunicationLanguage": false,
+      "account": {
+        "id": "019a5925-efd5-744d-b45c-4599e66556c5",
+        "displayId": "1000154",
+        "isDeleted": false,
+        "partyRoleCategory": "ACCOUNT",
+        "partyRole": "1001",
+        "addressId": "019a5925-efd5-744d-b45c-6599e66556c5",
+        "determinationMethodCode": 1,
+        "isMain": true,
+        "partyType": "ACCOUNT"
+      },
+      "processor": {
+        "id": "0199e3c6-fe04-7000-9de7-559302fe84e9",
+        "displayId": "8000000061",
+        "isDeleted": false,
+        "partyRoleCategory": "PROCESSOR",
+        "partyRole": "40",
+        "addressId": "0199e3c6-fe05-7000-9de7-6d9302fe84e9",
+        "determinationMethodCode": 7,
+        "isMain": true,
+        "partyType": "EMPLOYEE"
+      },
+      "customEmployees": [
+        {
+          "partyId": "01993d91-be1e-777e-bcd2-877bfaf65bf2",
+          "emailId": null,
+          "employeeDisplayId": null,
+          "id": "800fd814-852e-4eb0-b957-6befbe72291f",
+          "displayId": "8000000012",
+          "name": null,
+          "isDeleted": false,
+          "partyRoleCategory": "CUSTOM_EMPLOYEE",
+          "partyRole": "ZKAM",
+          "partyRoleDescription": null,
+          "addressId": "01993d91-be1e-777e-bcd2-9f7bfaf65bf2",
+          "determinationMethodCode": 7,
+          "isMain": true,
+          "nonVerbalCommunicationLanguage": null,
+          "partyType": "EMPLOYEE"
+        },
+        {
+          "partyId": "0199e3c6-fe04-7000-9de7-559302fe84e9",
+          "emailId": null,
+          "employeeDisplayId": null,
+          "id": "0b51e6ea-1326-4fb0-880b-ef36d9c66225",
+          "displayId": "8000000061",
+          "name": null,
+          "isDeleted": false,
+          "partyRoleCategory": "CUSTOM_EMPLOYEE",
+          "partyRole": "ZCS",
+          "partyRoleDescription": null,
+          "addressId": "0199e3c6-fe05-7000-9de7-6d9302fe84e9",
+          "determinationMethodCode": 7,
+          "isMain": true,
+          "nonVerbalCommunicationLanguage": null,
+          "partyType": "EMPLOYEE"
+        }
+      ],
+      "timePoints": {
+        "reportedOn": "2025-11-11T12:52:00.000Z",
+        "assignedToProcessorOn": "2025-11-11T12:52:02.749Z"
+      },
+      "catalog": {
+        "id": "886848f5-9160-4663-ac22-7ce01601add7"
+      },
+      "isRecommendedCategory": false,
+      "isEndOfPurpose": false,
+      "isDepersonalized": false,
+      "isRead": false,
+      "isIrrelevant": false,
+      "isFormEnabled": false,
+      "isSubcaseEnabled": false,
+      "isTaskEnabled": false,
+      "isBusinessDocumentEnabled": false,
+      "isLastResponseByCustomer": false,
+      "isDraftMode": false,
+      "accessControlEntries": [
+        "0199e3c6-fe04-7000-9de7-559302fe84e9",
+        "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+        "01993d90-936c-7332-a56a-e0508c7be8bb"
+      ],
+      "adminData": {
+        "createdOn": "2025-11-11T12:52:02.527Z",
+        "createdBy": "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+        "updatedOn": "2025-11-11T12:52:07.705Z",
+        "updatedBy": "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b"
+      }
+    }
+  }
+}
+
+### Servicio Node Parties
+POST http://localhost:4004/PartiesRedetAction 
+Content-Type: application/json
+
+{
+  "currentImage": {
+          "id": "9a7627e6-b593-11f0-b93a-abee9e90e88c",
+          "displayId": "23",
+          "subject": "Nuevo Caso",
+          "priority": "03",
+          "origin": "MANUAL_DATA_ENTRY",
+          "caseType": "ZREG",
+          "isRecommendedCaseType": false,
+          "statusSchema": "01",
+          "partyScheme": "CASE_GENERAL",
+          "status": "01",
+          "escalationStatus": "NOT_ESCALATED",
+          "lifeCycleStatus": "OPEN",
+          "isRecommendedCommunicationLanguage": false,
+          "account": {
+              "id": "019a073e-043b-7000-867d-bbc1a7547b42",
+              "displayId": "1000035",
+              "isDeleted": false,
+              "partyRoleCategory": "ACCOUNT",
+              "partyRole": "1001",
+              "addressId": "019a073e-043b-7000-867d-d3c1a7547b42",
+              "determinationMethodCode": 1,
+              "isMain": true,
+              "partyType": "ACCOUNT"
+          },
+          "contact": {
+              "id": "019a0724-f812-7001-b7ce-fc0b54898ac8",
+              "displayId": "1000028",
+              "isDeleted": false,
+              "partyRoleCategory": "ACCOUNT_CONTACT",
+              "partyRole": "591",
+              "addressId": "019a0740-cff7-7001-9438-b84b6013a33c",
+              "determinationMethodCode": 7,
+              "isMain": true,
+              "partyType": "CONTACT"
+          },
+          "processor": {
+              "id": "01993d90-936c-7332-a56a-e0508c7be8bb",
+              "displayId": "8000000011",
+              "isDeleted": false,
+              "partyRoleCategory": "PROCESSOR",
+              "partyRole": "40",
+              "addressId": "01993d90-936d-7332-a56a-f8508c7be8bb",
+              "determinationMethodCode": 3,
+              "isMain": true,
+              "partyType": "EMPLOYEE"
+          },
+          "timePoints": {
+              "reportedOn": "2025-10-30T13:23:00.000Z",
+              "assignedToProcessorOn": "2025-10-30T13:23:20.545Z"
+          },
+          "catalog": {
+              "id": "886848f5-9160-4663-ac22-7ce01601add7"
+          },
+          "isRecommendedCategory": false,
+          "isEndOfPurpose": false,
+          "isDepersonalized": false,
+          "isRead": false,
+          "isIrrelevant": false,
+          "isFormEnabled": false,
+          "isSubcaseEnabled": false,
+          "isTaskEnabled": false,
+          "isBusinessDocumentEnabled": false,
+          "isLastResponseByCustomer": false,
+          "isDraftMode": false,
+          "accessControlEntries": [
+              "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+              "01993d90-936c-7332-a56a-e0508c7be8bb"
+          ],
+          "adminData": {
+              "createdOn": "2025-10-30T13:23:20.414Z",
+              "createdBy": "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+              "updatedOn": "2025-10-30T13:23:29.267Z",
+              "updatedBy": "f22aca37-8fd2-11f0-a59e-91d4acd4bc7b"
+          }
+      }
+}
+
+
+### SalesAreaDeterAction
+POST http://localhost:4004/odata/v4/lluch/SalesAreaDeterAction
+Content-Type: application/json
+
+{
+  "id": "7cf093f3-befd-11f0-8b6e-894f91a2bbb3"
+}
+
+### PartiesRedetAction
+POST http://localhost:4004/odata/v4/lluch/PartiesRedetAction
+Content-Type: application/json
+
+{
+  "id": "51523935-ba48-11f0-8bdd-a5a5889bbe23"
+}
