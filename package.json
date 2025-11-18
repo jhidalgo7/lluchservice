@@ -8,7 +8,8 @@
     "@sap/xsenv": "^6.0.0",
     "@sap/xssec": "~4.10.0",
     "express": "^4",
-    "@sap/cds-odata-v2-adapter-proxy":"1.9.21"
+    "@sap/cds-odata-v2-adapter-proxy":"1.9.21",
+    "sleep-promise":"9.1.0"
   },
   "devDependencies": {
     "@sap/cds-dk": "^9.4.3",
@@ -39,11 +40,11 @@
         "kind": "rest",
         "credentials": {
           "destination": "destino_c4c",
-          "forwardAuthToken": true,
+          "forwardAuthToken": false,
           "requestTimeout": 300000
         },
-        "csrf": true,
-        "csrfInBatch": true,
+        "csrf": false,
+        "csrfInBatch":false,
         "pool": {
           "min": 1,
           "max": 10

@@ -3,6 +3,7 @@
 const cds = require("@sap/cds");
 const express = require("express");
 const proxy = require("@sap/cds-odata-v2-adapter-proxy");
+const sleep = require('sleep-promise');
 
 cds.on("bootstrap", (app) => {
   app.use(proxy());
@@ -10,15 +11,22 @@ cds.on("bootstrap", (app) => {
   app.post("/SalesAreaDeterAction", async (req, res) => {
     try {
       const id = req.body?.data?.currentImage?.id;
-      console.log("Req Body: " + JSON.stringify(req.body));
+      console.log("Req Body SalesAreaDeterAction: " + JSON.stringify(req.body));
+      await sleep(1000);
       if (!id) return res.status(400).send({ error: "No se ha proporcionado un ID válido" });
-
+      try {
+        console.log("headers recibidos:" + JSON.stringify(req.headers));
+      } catch (oError) {
+        
+      }
       const srv = cds.services.LluchService;
       if (!srv) throw new Error("Servicio LluchService no encontrado en cds.services");
 
       const result = await srv.send({
         event: "SalesAreaDeterAction",
-        data: { id }
+        data: { id },
+        headers: req.headers
+
       });
 
       return res.status(200).send({
@@ -34,6 +42,8 @@ cds.on("bootstrap", (app) => {
   app.post("/PartiesRedetAction", async (req, res) => {
     try {
       const id = req.body?.data?.currentImage?.id;
+      console.log("Req Body PartiesRedetAction: " + JSON.stringify(req.body));
+      await sleep(1000);
       if (!id) return res.status(400).send({ error: "No se ha proporcionado un ID válido" });
 
       const srv = cds.services.LluchService;
@@ -41,7 +51,9 @@ cds.on("bootstrap", (app) => {
 
       const result = await srv.send({
         event: "PartiesRedetAction",
-        data: { id }
+        data: { id },
+        headers: req.headers
+
       });
 
       return res.status(200).send({
@@ -53,6 +65,7 @@ cds.on("bootstrap", (app) => {
       return res.status(500).send({ error: error.message });
     }
   });
+
 });
 
 module.exports = cds.server;

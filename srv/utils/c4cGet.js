@@ -6,6 +6,9 @@ async function c4cGet(path) {
       { destinationName: 'destino_c4c' },
       {
         method: "GET",
+        headers: {
+          'x-csrf-token': 'fetch'
+        },
         url: path
       }
     );
