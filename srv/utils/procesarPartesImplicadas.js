@@ -1,6 +1,6 @@
 
 const constants = require("./constants"); 
-const c4cPatch = require("./c4cPatch");
+/* const c4cPatch = require("./c4cPatch");
 
 async function procesarPartesImplicadas(oCase, oAccount) {
     const caseId = oCase.id;
@@ -16,7 +16,7 @@ async function procesarPartesImplicadas(oCase, oAccount) {
         return "Cambio de Sales Org --> Partes implicadas actualizadas";
     }
 }
-
+ */
 // ======================================================================
 // Actualizamos Processor y CustomEmployees
 // ======================================================================
@@ -71,13 +71,13 @@ async function updatePartesImplicadas(caseId, oCase, oAccount) {
     }
 
     //PATCH body
-    const patchBody = {};
-    if (Object.keys(nuevoProcessor).length > 0) patchBody.processor = nuevoProcessor;
-    if (nuevosCustomEmployees.length > 0) patchBody.customEmployees = nuevosCustomEmployees;
+    //const patchBody = {};
+    if (Object.keys(nuevoProcessor).length > 0) oCase.processor = nuevoProcessor;
+    if (nuevosCustomEmployees.length > 0) oCase.customEmployees = nuevosCustomEmployees;
 
     //Llamada PATCH
-    const path = `${constants.pathC4C.cases}/${caseId}`;
-    await c4cPatch(path, patchBody);
+    /* const path = `${constants.pathC4C.cases}/${caseId}`;
+    await c4cPatch(path, patchBody); */
 }
 
-module.exports = { procesarPartesImplicadas };
+module.exports = { updatePartesImplicadas };

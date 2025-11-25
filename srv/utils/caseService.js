@@ -6,7 +6,7 @@ const constants = require("./constants");
 
 module.exports = {
 
-  async getCase(id, req) {
+/*   async getCase(id, req) {
     const pathCases = `${constants.pathC4C.cases}${id ? `/${id}` : ""}`;
 
     try {
@@ -16,9 +16,9 @@ module.exports = {
       console.error("Error al recuperar caso:", oError.message);
       return req.error(500, "Error al recuperar casos desde  SAP SERVICES CLOUD V2");
     }
-  },
+  }, */
 
-  async getClient(oDataCase, req) {
+  async getClient(oDataCase) {
 
     const clientID = oDataCase.account?.id;
     if (!clientID) {
@@ -35,7 +35,7 @@ module.exports = {
       //return req.error(500, "Error al recuperar cliente desde C4C");
     }
   },
-
+/* 
   async determinateSalesArea(accountResponse, oDataCase, pathCases) {
     //Si no encontramos cliente en el caso
     const oDataAccount = accountResponse?.data?.value;
@@ -75,5 +75,5 @@ module.exports = {
         });
       }
     }
-  }
+  } */
 }

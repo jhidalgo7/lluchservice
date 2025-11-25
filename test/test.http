@@ -11,6 +11,440 @@ POST http://localhost:4004/PartiesRedetAction
 Content-Type: application/json
 
  {"id":"31b5daca-e158-4d7a-a33f-2d9ee8fd9efb","specversion":"0.2","type":"sap.crm.custom.event.BTPPARTESIMPLICADAS","source":"686e24c906be012e7bb337b3","subject":"5166ff7a-c469-11f0-b552-fd14d7a88a2e","time":"2025-11-18T10:29:38.506442772Z","datacontenttype":"application/json","data":{"beforeImage":{"id":"5166ff7a-c469-11f0-b552-fd14d7a88a2e","displayId":"121","subject":"prueba","priority":"03","origin":"MANUAL_DATA_ENTRY","caseType":"ZREG","isRecommendedCaseType":false,"statusSchema":"ZR","partyScheme":"CASE_GENERAL","status":"01","escalationStatus":"NOT_ESCALATED","lifeCycleStatus":"OPEN","isRecommendedCommunicationLanguage":false,"account":{"id":"019a5925-efd5-744d-b45c-4599e66556c5","displayId":"1000154","isDeleted":false,"partyRoleCategory":"ACCOUNT","partyRole":"1001","addressId":"019a5925-efd5-744d-b45c-6599e66556c5","determinationMethodCode":1,"isMain":true,"partyType":"ACCOUNT"},"processor":{"id":"0199e3c6-fe04-7000-9de7-559302fe84e9","displayId":"8000000061","isDeleted":false,"partyRoleCategory":"PROCESSOR","partyRole":"40","addressId":"0199e3c6-fe05-7000-9de7-6d9302fe84e9","determinationMethodCode":7,"isMain":true,"partyType":"EMPLOYEE"},"customEmployees":[{"partyId":"01993d91-be1e-777e-bcd2-877bfaf65bf2","emailId":null,"employeeDisplayId":null,"id":"c0a85f87-7e99-4e9b-a86e-5389963b9538","displayId":"8000000012","name":null,"isDeleted":false,"partyRoleCategory":"CUSTOM_EMPLOYEE","partyRole":"ZKAM","partyRoleDescription":null,"addressId":"01993d91-be1e-777e-bcd2-9f7bfaf65bf2","determinationMethodCode":7,"isMain":true,"nonVerbalCommunicationLanguage":null,"partyType":"EMPLOYEE"},{"partyId":"0199e3c6-fe04-7000-9de7-559302fe84e9","emailId":null,"employeeDisplayId":null,"id":"e556bad8-004e-4b70-80b4-de460a9a381c","displayId":"8000000061","name":null,"isDeleted":false,"partyRoleCategory":"CUSTOM_EMPLOYEE","partyRole":"ZCS","partyRoleDescription":null,"addressId":"0199e3c6-fe05-7000-9de7-6d9302fe84e9","determinationMethodCode":7,"isMain":true,"nonVerbalCommunicationLanguage":null,"partyType":"EMPLOYEE"}],"timePoints":{"reportedOn":"2025-11-18T10:28:00.000Z","completionDueOn":"2025-11-28T10:28:26.000Z","initialReviewDueOn":"2025-11-19T07:58:26.000Z","assignedToProcessorOn":"2025-11-18T10:28:26.765Z"},"catalog":{"id":"886848f5-9160-4663-ac22-7ce01601add7"},"serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714","isRecommendedCategory":false,"isEndOfPurpose":false,"isDepersonalized":false,"isRead":true,"isIrrelevant":false,"isFormEnabled":false,"isSubcaseEnabled":false,"isTaskEnabled":false,"isBusinessDocumentEnabled":false,"isLastResponseByCustomer":false,"isDraftMode":false,"accessControlEntries":["344a1fdf-b58b-11f0-9c5b-890a8f66d18a","0199e3c6-fe04-7000-9de7-559302fe84e9"],"extensions":{"ZOrganizacion_de_ventas":"9999"},"adminData":{"createdOn":"2025-11-18T10:28:26.422Z","createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","updatedOn":"2025-11-18T10:28:40.634Z","updatedBy":"344a1fdf-b58b-11f0-9c5b-890a8f66d18a"}},"currentImage":{"id":"5166ff7a-c469-11f0-b552-fd14d7a88a2e","displayId":"121","subject":"prueba","priority":"03","origin":"MANUAL_DATA_ENTRY","caseType":"ZREG","isRecommendedCaseType":false,"statusSchema":"ZR","partyScheme":"CASE_GENERAL","status":"01","escalationStatus":"NOT_ESCALATED","lifeCycleStatus":"OPEN","isRecommendedCommunicationLanguage":false,"account":{"id":"019a5925-efd5-744d-b45c-4599e66556c5","displayId":"1000154","isDeleted":false,"partyRoleCategory":"ACCOUNT","partyRole":"1001","addressId":"019a5925-efd5-744d-b45c-6599e66556c5","determinationMethodCode":1,"isMain":true,"partyType":"ACCOUNT"},"processor":{"id":"0199e3c6-fe04-7000-9de7-559302fe84e9","displayId":"8000000061","isDeleted":false,"partyRoleCategory":"PROCESSOR","partyRole":"40","addressId":"0199e3c6-fe05-7000-9de7-6d9302fe84e9","determinationMethodCode":7,"isMain":true,"partyType":"EMPLOYEE"},"customEmployees":[{"partyId":"01993d91-be1e-777e-bcd2-877bfaf65bf2","emailId":null,"employeeDisplayId":null,"id":"c0a85f87-7e99-4e9b-a86e-5389963b9538","displayId":"8000000012","name":null,"isDeleted":false,"partyRoleCategory":"CUSTOM_EMPLOYEE","partyRole":"ZKAM","partyRoleDescription":null,"addressId":"01993d91-be1e-777e-bcd2-9f7bfaf65bf2","determinationMethodCode":7,"isMain":true,"nonVerbalCommunicationLanguage":null,"partyType":"EMPLOYEE"},{"partyId":"0199e3c6-fe04-7000-9de7-559302fe84e9","emailId":null,"employeeDisplayId":null,"id":"e556bad8-004e-4b70-80b4-de460a9a381c","displayId":"8000000061","name":null,"isDeleted":false,"partyRoleCategory":"CUSTOM_EMPLOYEE","partyRole":"ZCS","partyRoleDescription":null,"addressId":"0199e3c6-fe05-7000-9de7-6d9302fe84e9","determinationMethodCode":7,"isMain":true,"nonVerbalCommunicationLanguage":null,"partyType":"EMPLOYEE"}],"timePoints":{"reportedOn":"2025-11-18T10:28:00.000Z","completionDueOn":"2025-11-28T10:28:26.000Z","initialReviewDueOn":"2025-11-19T07:58:26.000Z","assignedToProcessorOn":"2025-11-18T10:28:26.765Z"},"catalog":{"id":"886848f5-9160-4663-ac22-7ce01601add7"},"serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714","isRecommendedCategory":false,"isEndOfPurpose":false,"isDepersonalized":false,"isRead":true,"isIrrelevant":false,"isFormEnabled":false,"isSubcaseEnabled":false,"isTaskEnabled":false,"isBusinessDocumentEnabled":false,"isLastResponseByCustomer":false,"isDraftMode":false,"accessControlEntries":["0199e3c6-fe04-7000-9de7-559302fe84e9","f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","01993d90-936c-7332-a56a-e0508c7be8bb"],"extensions":{"ZOrganizacion_de_ventas":"1000"},"adminData":{"createdOn":"2025-11-18T10:28:26.422Z","createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","updatedOn":"2025-11-18T10:29:38.168Z","updatedBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b"}}}}
+
+
+
+### Servicio Node Parties
+POST http://localhost:4004/SalesArea_PartiesDeterAction 
+Content-Type: application/json
+
+{"entity":"sap.ssc.caseservice.entity.case","currentImage":{"id":"5f6cb5f1-c9ec-11f0-85ea-b9dda4717a57","displayId":"132","subject":"creacion de un caso","priority":"03","priorityDescription":"Normal","origin":"MANUAL_DATA_ENTRY","originDescription":"Entrada de datos manual","caseType":"ZREG","isRecommendedCaseType":false,"caseTypeDescription":"Regulatory","statusSchema":"ZR","partyScheme":"CASE_GENERAL","status":"01","statusDescription":"Abierta","escalationStatus":"NOT_ESCALATED","lifeCycleStatus":"OPEN","isRecommendedCommunicationLanguage":false,"processor":{"emailId":"nsaenz@seidor.com","employeeDisplayId":"NSAENZ","id":"01993d90-936c-7332-a56a-e0508c7be8bb","displayId":"8000000011","name":"Nacho Saenz","isDeleted":false,"partyRoleCategory":"PROCESSOR","partyRole":"40","partyRoleDescription":"Procesador","addressId":"01993d90-936d-7332-a56a-f8508c7be8bb","determinationMethodCode":3,"isMain":true,"partyType":"EMPLOYEE"},"timePoints":{"reportedOn":"2025-11-25T10:49:00Z","completionDueOn":"2025-12-05T10:49:09Z","initialReviewDueOn":"2025-11-26T08:19:09Z","assignedToProcessorOn":"2025-11-25T10:49:10.209Z"},"catalog":{"id":"886848f5-9160-4663-ac22-7ce01601add7","displayId":"CATALOGO_REGULATORY","name":"Catálogo Regulatory"},"serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714","serviceLevelName":"PRIORIDAD_MEDIA","isRecommendedCategory":false,"isEndOfPurpose":false,"isDepersonalized":false,"isRead":false,"isIrrelevant":false,"isFormEnabled":false,"isSubcaseEnabled":false,"isTaskEnabled":false,"isBusinessDocumentEnabled":false,"isLastResponseByCustomer":false,"isDraftMode":false,"adminData":{"createdOn":"2025-11-25T10:49:09.794Z","createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","createdByName":"Nacho Saenz","updatedOn":"2025-11-25T10:49:57.524915317Z","updatedBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","updatedByName":"Nacho Saenz"}},"beforeImage":{},"skipValidations":false,"context":{"employeeId":"01993d90-936c-7332-a56a-e0508c7be8bb","userId":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b","skipValidations":false,"isDryRun":false,"language":"es"}}
+ 
+
+### Servicio Node Parties
+POST http://localhost:4004/SalesArea_PartiesDeterAction 
+Content-Type: application/json
+
+{
+   "entity":"sap.ssc.caseservice.entity.case",
+   "currentImage":{
+      "id":"a9dc6cf5-c9ee-11f0-85ea-0de447ae8ac5",
+      "displayId":"133",
+      "subject":"nuevo caso",
+      "priority":"03",
+      "priorityDescription":"Normal",
+      "origin":"MANUAL_DATA_ENTRY",
+      "originDescription":"Entrada de datos manual",
+      "caseType":"ZREG",
+      "isRecommendedCaseType":false,
+      "caseTypeDescription":"Regulatory",
+      "statusSchema":"ZR",
+      "partyScheme":"CASE_GENERAL",
+      "status":"01",
+      "statusDescription":"Abierta",
+      "escalationStatus":"NOT_ESCALATED",
+      "lifeCycleStatus":"OPEN",
+      "isRecommendedCommunicationLanguage":false,
+      "account":{
+         "formattedPostalAddress":"PK 18 / GEBZE ORGANIZE SANAYI BOLGESI / 41400 GEBZE / TR",
+         "country":"TR",
+         "state":"41",
+         "streetPostalCode":"41400",
+         "defaultExternalBusinessPartnerId":"9000028795",
+         "defaultExternalCustomerId":"100746",
+         "id":"019a073e-043b-7000-867d-bbc1a7547b42",
+         "displayId":"1000035",
+         "name":"AROMSA",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT",
+         "partyRole":"1001",
+         "partyRoleDescription":"Cuenta",
+         "addressId":"019a073e-043b-7000-867d-d3c1a7547b42",
+         "determinationMethodCode":1,
+         "isMain":true,
+         "partyType":"ACCOUNT"
+      },
+      "contact":{
+         "emailId":"meltem.toker@aromsa.com.tr",
+         "phoneNumber":"+90902623261723",
+         "id":"019a0724-f812-7001-b7ce-fc0b54898ac8",
+         "displayId":"1000028",
+         "name":"MELTEM TOKER",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT_CONTACT",
+         "partyRole":"591",
+         "partyRoleDescription":"Contacto de cuenta",
+         "addressId":"019a0740-cff7-7001-9438-b84b6013a33c",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"CONTACT"
+      },
+      "processor":{
+         "emailId":"aleix.maurel@seidor.com",
+         "employeeDisplayId":"AMAUREL",
+         "id":"01993d91-5510-7118-a879-719b308ff104",
+         "displayId":"8000000021",
+         "name":"Aleix Maurel",
+         "isDeleted":false,
+         "partyRoleCategory":"PROCESSOR",
+         "partyRole":"40",
+         "partyRoleDescription":"Procesador",
+         "addressId":"01993d91-5510-7118-a879-899b308ff104",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"EMPLOYEE"
+      },
+      "customEmployees":[
+         {
+            "partyId":"019a71e9-5af5-7dd4-abb6-d799b621a6aa",
+            "emailId":"",
+            "employeeDisplayId":"188",
+            "id":"a21606f1-6f84-49de-a751-096dee9b0728",
+            "displayId":"8000000083",
+            "name":"YUSUF DEMIROK",
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZKAM",
+            "partyRoleDescription":"KAM",
+            "addressId":null,
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         },
+         {
+            "partyId":"01993d91-5510-7118-a879-719b308ff104",
+            "emailId":"aleix.maurel@seidor.com",
+            "employeeDisplayId":"AMAUREL",
+            "id":"d89b257d-7b0a-44fd-a91d-79710e47a456",
+            "displayId":"8000000021",
+            "name":"Aleix Maurel",
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZCS",
+            "partyRoleDescription":"Customer Service",
+            "addressId":"01993d91-5510-7118-a879-899b308ff104",
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         }
+      ],
+      "timePoints":{
+         "reportedOn":"2025-11-25T11:05:00Z",
+         "completionDueOn":"2025-12-05T11:05:33Z",
+         "initialReviewDueOn":"2025-11-26T08:35:33Z",
+         "assignedToProcessorOn":"2025-11-25T11:05:34.119Z"
+      },
+      "catalog":{
+         "id":"886848f5-9160-4663-ac22-7ce01601add7",
+         "displayId":"CATALOGO_REGULATORY",
+         "name":"Catálogo Regulatory"
+      },
+      "serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714",
+      "serviceLevelName":"PRIORIDAD_MEDIA",
+      "isRecommendedCategory":false,
+      "isEndOfPurpose":false,
+      "isDepersonalized":false,
+      "isRead":true,
+      "isIrrelevant":false,
+      "isFormEnabled":false,
+      "isSubcaseEnabled":false,
+      "isTaskEnabled":false,
+      "isBusinessDocumentEnabled":false,
+      "isLastResponseByCustomer":false,
+      "isDraftMode":false,
+      "extensions":{
+         "ZOrganizacion_de_ventas":"1100"
+      },
+      "adminData":{
+         "createdOn":"2025-11-25T11:05:33.666Z",
+         "createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+         "createdByName":"Nacho Saenz",
+         "updatedOn":"2025-11-25T11:10:34.848006573Z",
+         "updatedBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+         "updatedByName":"Nacho Saenz"
+      }
+   },
+   "beforeImage":{
+      "id":"a9dc6cf5-c9ee-11f0-85ea-0de447ae8ac5",
+      "displayId":"133",
+      "subject":"nuevo caso",
+      "priority":"03",
+      "origin":"MANUAL_DATA_ENTRY",
+      "caseType":"ZREG",
+      "isRecommendedCaseType":false,
+      "statusSchema":"ZR",
+      "partyScheme":"CASE_GENERAL",
+      "status":"01",
+      "escalationStatus":"NOT_ESCALATED",
+      "lifeCycleStatus":"OPEN",
+      "isRecommendedCommunicationLanguage":false,
+      "extensions":{
+         "ZOrganizacion_de_ventas":"9999"
+      },
+      "account":{
+         "id":"019a073e-043b-7000-867d-bbc1a7547b42",
+         "displayId":"1000035",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT",
+         "partyRole":"1001",
+         "addressId":"019a073e-043b-7000-867d-d3c1a7547b42",
+         "determinationMethodCode":1,
+         "isMain":true,
+         "partyType":"ACCOUNT"
+      },
+      "contact":{
+         "id":"019a0724-f812-7001-b7ce-fc0b54898ac8",
+         "displayId":"1000028",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT_CONTACT",
+         "partyRole":"591",
+         "addressId":"019a0740-cff7-7001-9438-b84b6013a33c",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"CONTACT"
+      },
+      "processor":{
+         "id":"01993d91-5510-7118-a879-719b308ff104",
+         "displayId":"8000000021",
+         "isDeleted":false,
+         "partyRoleCategory":"PROCESSOR",
+         "partyRole":"40",
+         "addressId":"01993d91-5510-7118-a879-899b308ff104",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"EMPLOYEE"
+      },
+      "customEmployees":[
+         {
+            "partyId":"019a71e9-5af5-7dd4-abb6-d799b621a6aa",
+            "emailId":null,
+            "employeeDisplayId":null,
+            "id":"a21606f1-6f84-49de-a751-096dee9b0728",
+            "displayId":"8000000083",
+            "name":null,
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZKAM",
+            "partyRoleDescription":null,
+            "addressId":null,
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         },
+         {
+            "partyId":"01993d91-5510-7118-a879-719b308ff104",
+            "emailId":null,
+            "employeeDisplayId":null,
+            "id":"d89b257d-7b0a-44fd-a91d-79710e47a456",
+            "displayId":"8000000021",
+            "name":null,
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZCS",
+            "partyRoleDescription":null,
+            "addressId":"01993d91-5510-7118-a879-899b308ff104",
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         }
+      ],
+      "timePoints":{
+         "reportedOn":"2025-11-25T11:05:00Z",
+         "completionDueOn":"2025-12-05T11:05:33Z",
+         "initialReviewDueOn":"2025-11-26T08:35:33Z",
+         "assignedToProcessorOn":"2025-11-25T11:05:34.119Z"
+      },
+      "catalog":{
+         "id":"886848f5-9160-4663-ac22-7ce01601add7"
+      },
+      "serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714",
+      "isRecommendedCategory":false,
+      "isEndOfPurpose":false,
+      "isDepersonalized":false,
+      "isRead":true,
+      "isIrrelevant":false,
+      "isFormEnabled":false,
+      "isSubcaseEnabled":false,
+      "isTaskEnabled":false,
+      "isBusinessDocumentEnabled":false,
+      "isLastResponseByCustomer":false,
+      "isDraftMode":false,
+      "adminData":{
+         "createdOn":"2025-11-25T11:05:33.666Z",
+         "createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+         "updatedOn":"2025-11-25T11:05:44.847Z",
+         "updatedBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b"
+      }
+   },
+   "skipValidations":false,
+   "context":{
+      "employeeId":"01993d90-936c-7332-a56a-e0508c7be8bb",
+      "userId":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+      "skipValidations":false,
+      "isDryRun":false,
+      "language":"es"
+   }
+}
+
+
+
+### Servicio Node Parties
+POST http://localhost:4004/SalesArea_PartiesDeterAction 
+Content-Type: application/json
+
+{
+   "entity":"sap.ssc.caseservice.entity.case",
+   "currentImage":{
+      "id":"a9dc6cf5-c9ee-11f0-85ea-0de447ae8ac5",
+      "displayId":"133",
+      "subject":"nuevo caso",
+      "priority":"03",
+      "priorityDescription":"Normal",
+      "origin":"MANUAL_DATA_ENTRY",
+      "originDescription":"Entrada de datos manual",
+      "caseType":"ZREG",
+      "isRecommendedCaseType":false,
+      "caseTypeDescription":"Regulatory",
+      "statusSchema":"ZR",
+      "partyScheme":"CASE_GENERAL",
+      "status":"01",
+      "statusDescription":"Abierta",
+      "escalationStatus":"NOT_ESCALATED",
+      "lifeCycleStatus":"OPEN",
+      "isRecommendedCommunicationLanguage":false,
+      "account":{
+         "formattedPostalAddress":"PK 18 / GEBZE ORGANIZE SANAYI BOLGESI / 41400 GEBZE / TR",
+         "country":"TR",
+         "state":"41",
+         "streetPostalCode":"41400",
+         "defaultExternalBusinessPartnerId":"9000028795",
+         "defaultExternalCustomerId":"100746",
+         "id":"019a073e-043b-7000-867d-bbc1a7547b42",
+         "displayId":"1000035",
+         "name":"AROMSA",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT",
+         "partyRole":"1001",
+         "partyRoleDescription":"Cuenta",
+         "addressId":"019a073e-043b-7000-867d-d3c1a7547b42",
+         "determinationMethodCode":1,
+         "isMain":true,
+         "partyType":"ACCOUNT"
+      },
+      "contact":{
+         "emailId":"meltem.toker@aromsa.com.tr",
+         "phoneNumber":"+90902623261723",
+         "id":"019a0724-f812-7001-b7ce-fc0b54898ac8",
+         "displayId":"1000028",
+         "name":"MELTEM TOKER",
+         "isDeleted":false,
+         "partyRoleCategory":"ACCOUNT_CONTACT",
+         "partyRole":"591",
+         "partyRoleDescription":"Contacto de cuenta",
+         "addressId":"019a0740-cff7-7001-9438-b84b6013a33c",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"CONTACT"
+      },
+      "processor":{
+         "emailId":"aleix.maurel@seidor.com",
+         "employeeDisplayId":"AMAUREL",
+         "id":"01993d91-5510-7118-a879-719b308ff104",
+         "displayId":"8000000021",
+         "name":"Aleix Maurel",
+         "isDeleted":false,
+         "partyRoleCategory":"PROCESSOR",
+         "partyRole":"40",
+         "partyRoleDescription":"Procesador",
+         "addressId":"01993d91-5510-7118-a879-899b308ff104",
+         "determinationMethodCode":7,
+         "isMain":true,
+         "partyType":"EMPLOYEE"
+      },
+      "customEmployees":[
+         {
+            "partyId":"019a71e9-5af5-7dd4-abb6-d799b621a6aa",
+            "emailId":"",
+            "employeeDisplayId":"188",
+            "id":"a21606f1-6f84-49de-a751-096dee9b0728",
+            "displayId":"8000000083",
+            "name":"YUSUF DEMIROK",
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZKAM",
+            "partyRoleDescription":"KAM",
+            "addressId":null,
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         },
+         {
+            "partyId":"01993d91-5510-7118-a879-719b308ff104",
+            "emailId":"aleix.maurel@seidor.com",
+            "employeeDisplayId":"AMAUREL",
+            "id":"d89b257d-7b0a-44fd-a91d-79710e47a456",
+            "displayId":"8000000021",
+            "name":"Aleix Maurel",
+            "isDeleted":false,
+            "partyRoleCategory":"CUSTOM_EMPLOYEE",
+            "partyRole":"ZCS",
+            "partyRoleDescription":"Customer Service",
+            "addressId":"01993d91-5510-7118-a879-899b308ff104",
+            "determinationMethodCode":7,
+            "isMain":true,
+            "nonVerbalCommunicationLanguage":null,
+            "partyType":"EMPLOYEE"
+         }
+      ],
+      "timePoints":{
+         "reportedOn":"2025-11-25T11:05:00Z",
+         "completionDueOn":"2025-12-05T11:05:33Z",
+         "initialReviewDueOn":"2025-11-26T08:35:33Z",
+         "assignedToProcessorOn":"2025-11-25T11:05:34.119Z"
+      },
+      "catalog":{
+         "id":"886848f5-9160-4663-ac22-7ce01601add7",
+         "displayId":"CATALOGO_REGULATORY",
+         "name":"Catálogo Regulatory"
+      },
+      "serviceLevelId":"f1ca4436-c14e-11f0-bd50-95d6eba26714",
+      "serviceLevelName":"PRIORIDAD_MEDIA",
+      "isRecommendedCategory":false,
+      "isEndOfPurpose":false,
+      "isDepersonalized":false,
+      "isRead":true,
+      "isIrrelevant":false,
+      "isFormEnabled":false,
+      "isSubcaseEnabled":false,
+      "isTaskEnabled":false,
+      "isBusinessDocumentEnabled":false,
+      "isLastResponseByCustomer":false,
+      "isDraftMode":false,
+      "adminData":{
+         "createdOn":"2025-11-25T11:05:33.666Z",
+         "createdBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+         "createdByName":"Nacho Saenz",
+         "updatedOn":"2025-11-25T11:10:34.848006573Z",
+         "updatedBy":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+         "updatedByName":"Nacho Saenz"
+      }
+   },
+   "beforeImage":{},
+   "skipValidations":false,
+   "context":{
+      "employeeId":"01993d90-936c-7332-a56a-e0508c7be8bb",
+      "userId":"f22aca37-8fd2-11f0-a59e-91d4acd4bc7b",
+      "skipValidations":false,
+      "isDryRun":false,
+      "language":"es"
+   }
+}
+
 ### SalesAreaDeterAction
 POST http://localhost:4004/odata/v4/lluch/SalesAreaDeterAction
 Content-Type: application/json
