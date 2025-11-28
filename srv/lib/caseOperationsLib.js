@@ -4,56 +4,52 @@ const constants = require("../utils/constants");
 const { getClient, getCase } = require("../utils/caseService");
 const { updatePartesImplicadas } = require("../utils/procesarPartesImplicadas");
 
-/***
- * 
- *  //CREACIÓN DE CASO
-        //Before image vacío y name account vacío o distinto de DUMMY
-          //salesareadeteraction
-
-    //EDITAR
-      //BeforeImage tenemos dummy y en el nuevo es distinto dummy
-          //salesareadeteraction
-       
-      //STATUS 01 Y area determinacion anterior 9999 y ahora sea distinta a la9999
-        //PartiesRedetAction
-
+/**
+ * SalesArea_PartiesDeterAction
+ * ---------------------------------------------------------
+ * Acción de PREHOOK para determinar el área de ventas y actualizar partes implicadas.
+ * Lógica:
+ *  - CREACIÓN DE CASO:
+ *      Si no hay imagen anterior (beforeImage) y el nombre de la cuenta no es DUMMY,
+ *      se ejecuta la determinación de área de ventas.
+ *  - EDICIÓN:
+ *      Si cambia la cuenta y no incluye DUMMY, recalculamos área de ventas.
+ *      Si cambia la organización de ventas, actualizamos partes implicadas.
+ *
+ * @param {Object} currentImage - Imagen actual del caso.
+ * @param {Object|null} beforeImage - Imagen anterior del caso (puede ser null).
+ * @returns {Object} dataModify - Objeto con modificaciones acumuladas.
  */
 async function SalesArea_PartiesDeterAction(currentImage, beforeImage) {
   let dataModify = {};
   cds.prehook = true;
   try {
-    // CREACIÓN DE CASO
+    // Verificamos si es creación (beforeImage vacío)
     const isBeforeEmpty = beforeImage == null || Object.keys(beforeImage).length === 0;
     const accountNameCurrent = currentImage?.account?.name || "";
 
-
-
+    // CREACIÓN DE CASO
     if (isBeforeEmpty && (accountNameCurrent === "" || !accountNameCurrent.includes(constants.DUMMY))) {
       console.log("Ejecutando SalesAreaDetermination (Creación de caso)");
-      // Recuperar cliente
       const accountResponse = await getClient(currentImage);
       const oDataAccount = accountResponse?.data?.value;
       await determinateSalesArea(currentImage, oDataAccount, dataModify);
+
     } else if (!isBeforeEmpty) {
-      // Recuperar cliente
+      // EDICIÓN DE CASO
       const accountResponse = await getClient(currentImage);
       const oDataAccount = accountResponse?.data?.value;
-      //const accountResponseBefore = await getClient(beforeImage);
 
-      // EDITAR
-      //28.11.2025 SI ES DISTINTA CUENTA Y NO INCLUYE DUMMY CALCULAMOS DETERMINACIÓN DE VENTAS
+      // Si cambia la cuenta y no incluye DUMMY, recalculamos área de ventas
       if ((currentImage.account.displayId !== beforeImage.account.displayId) && !accountNameCurrent.includes(constants.DUMMY)) {
         console.log("Ejecutando SalesAreaDetermination (Editar caso)");
         await determinateSalesArea(currentImage, oDataAccount, dataModify);
       }
-      // STATUS 01 y cambio de área siempre que sea un sales area distinta a la anterior,
-      //actulizar partes implicadas 
+
+      // Si cambia la organización de ventas, actualizamos partes implicadas
       const salesAreaBefore = beforeImage?.extensions?.ZOrganizacion_de_ventas || "";
       const salesAreaCurrent = currentImage?.extensions?.ZOrganizacion_de_ventas || "";
-      if (//statusCurrent === constants.status.open
-        // && salesAreaBefore === constants.zorganizacionVentas
-        // && salesAreaCurrent !== constants.zorganizacionVentas
-        salesAreaBefore !== salesAreaCurrent) {
+      if (salesAreaBefore !== salesAreaCurrent) {
         console.log("Ejecutando PartiesRedetAction");
         await updatePartesImplicadas(null, currentImage, oDataAccount, dataModify);
       }
@@ -63,31 +59,26 @@ async function SalesArea_PartiesDeterAction(currentImage, beforeImage) {
   } catch (error) {
     console.error("Error en SalesArea_PartiesDeterAction:", error);
   }
-
 }
 
-/***
- * 
- *  //CREACIÓN DE CASO
-        //Before image vacío y name account vacío o distinto de DUMMY
-          //salesareadeteraction
-
-    //EDITAR
-      //BeforeImage tenemos dummy y en el nuevo es distinto dummy
-          //salesareadeteraction
-       
-      //STATUS 01 Y area determinacion anterior 9999 y ahora sea distinta a la9999
-        //PartiesRedetAction
-  PETICIÓN DE POST HOOK
+/**
+ * PartiesDeterAction
+ * ---------------------------------------------------------
+ * Acción de Flujo para actualizar partes implicadas cuando cambia la organización de ventas.
+ * Lógica:
+ *  - Si existe imagen anterior y la organización de ventas cambió,
+ *    recuperamos el caso y el cliente, y actualizamos partes implicadas.
+ *
+ * @param {Object} currentImage - Imagen actual del caso.
+ * @param {Object|null} beforeImage - Imagen anterior del caso.
+ * @returns {Object} dataModify - Objeto con modificaciones acumuladas.
  */
 async function PartiesDeterAction(currentImage, beforeImage) {
-  let dataModify = {}
+  let dataModify = {};
   try {
-    // CREACIÓN DE CASO
     const isBeforeEmpty = beforeImage == null || Object.keys(beforeImage).length === 0;
 
     if (!isBeforeEmpty) {
-      //  const statusCurrent = currentImage?.status || "";
       const salesAreaBefore = beforeImage?.extensions?.ZOrganizacion_de_ventas || "";
       const salesAreaCurrent = currentImage?.extensions?.ZOrganizacion_de_ventas || "";
 
@@ -95,15 +86,14 @@ async function PartiesDeterAction(currentImage, beforeImage) {
         try {
           const caseResponse = await getCase(currentImage.id);
           cds.headersReq = {};
-          cds.headersReq.eTag = caseResponse.headers.etag
-
+          cds.headersReq.eTag = caseResponse.headers.etag;
         } catch (error) {
-
+          console.warn("Error recuperando eTag:", error.message);
         }
-        // Recuperar cliente
+
+        // Recuperar cliente y actualizar partes implicadas
         const accountResponse = await getClient(currentImage);
         const oDataAccount = accountResponse?.data?.value;
-
         await updatePartesImplicadas(null, currentImage, oDataAccount, dataModify);
       }
     }
@@ -112,31 +102,33 @@ async function PartiesDeterAction(currentImage, beforeImage) {
   } catch (error) {
     console.error("Error en PartiesDeterAction:", error);
   }
-
 }
+
 /**
- *  Determinación de area de vetas
+ * determinateSalesArea
+ * ---------------------------------------------------------
+ * Determina la organización de ventas para el caso.
+ * Lógica:
+ *  - Si no hay cliente, asigna valor por defecto.
+ *  - Si hay un único acuerdo de ventas, asigna esa organización.
+ *  - Si hay más de uno, asigna la organización por defecto (9999).
+ *
+ * @param {Object} caseRequest - Caso actual.
+ * @param {Object|null} oDataAccount - Datos del cliente.
+ * @param {Object} dataModify - Objeto para acumular modificaciones.
  */
 async function determinateSalesArea(caseRequest, oDataAccount, dataModify) {
   try {
-    // Inicializar extensiones si no existen
     caseRequest.extensions ??= {};
 
-    // Si no encontramos cliente
     if (!oDataAccount) {
       console.warn("Cliente no encontrado, asignando valor por defecto");
       caseRequest.extensions.ZOrganizacion_de_ventas = constants.zorganizacionVentas;
-      return; // Early return, no hay más que hacer
+      return;
     }
 
-    // Determinar acuerdos de ventas
     const salesArrangements = caseRequest.salesArrangements || oDataAccount.salesArrangements || [];
     const currentOrg = caseRequest?.extensions?.ZOrganizacion_de_ventas || "";
-
-    // Si ya existe organización, no hacemos nada
-    //28.11.2025 09:23 Si se cambia de una org a otra nueva, se tiene que validar si existe más de una org
-    //EN la nueva organización para cambiarla a la 9999
-    //if (currentOrg) return;
 
     // Lógica para asignar organización
     if (salesArrangements.length === 1) {
@@ -151,5 +143,4 @@ async function determinateSalesArea(caseRequest, oDataAccount, dataModify) {
   }
 }
 
-
-module.exports = { SalesArea_PartiesDeterAction, PartiesDeterAction }
+module.exports = { SalesArea_PartiesDeterAction, PartiesDeterAction };

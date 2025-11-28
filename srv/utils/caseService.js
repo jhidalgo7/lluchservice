@@ -33,46 +33,5 @@ module.exports = {
       console.error("Error al recuperar cliente:", oError.message);
       //return req.error(500, "Error al recuperar cliente desde C4C");
     }
-  },
-/* 
-  async determinateSalesArea(accountResponse, oDataCase, pathCases) {
-    //Si no encontramos cliente en el caso
-    const oDataAccount = accountResponse?.data?.value;
-    if (!oDataAccount) {
-      console.warn("Cliente no encontrado, asignando '9999'");
-
-      return await c4cPatch(pathCases, {
-        extensions: { ZOrganizacion_de_ventas: constants.zorganizacionVentas }
-      });
-    }
-
-    //Si encontramos cliente
-    //Validamos la cantiddad de salesArrangement
-    let salesArrangements
-    try {
-      salesArrangements = oDataCase.data.value.salesArrangements || [];
-
-    } catch (error) {
-
-      salesArrangements = oDataAccount.salesArrangements || [];
-    }
-
-    const currentOrg = oDataCase.extensions?.ZOrganizacion_de_ventas;
-
-    if (!currentOrg) {
-      //Si solo tiene un acuerdo de ventas, lo actualizamos con el del acuerdo de ventas
-      if (salesArrangements.length === 1) {
-        return await c4cPatch(pathCases, {
-          extensions: {
-            ZOrganizacion_de_ventas: salesArrangements[0].salesOrganizationDisplayId
-          }
-        });
-      } else if (salesArrangements.length > 1) {
-        //Si tiene mas de uno, añadimos el 9999
-        return await c4cPatch(pathCases, {
-          extensions: { ZOrganizacion_de_ventas: constants.zorganizacionVentas }
-        });
-      }
-    }
-  } */
+  }
 }
