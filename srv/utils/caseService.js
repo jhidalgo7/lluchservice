@@ -6,17 +6,16 @@ const constants = require("./constants");
 
 module.exports = {
 
-/*   async getCase(id, req) {
+  async getCase(id) {
     const pathCases = `${constants.pathC4C.cases}${id ? `/${id}` : ""}`;
 
     try {
       const caseResponse = await c4cGet(pathCases);
       return caseResponse;
     } catch (oError) {
-      console.error("Error al recuperar caso:", oError.message);
-      return req.error(500, "Error al recuperar casos desde  SAP SERVICES CLOUD V2");
+      console.error("Error al recuperar caso:", oError.message); 
     }
-  }, */
+  }, 
 
   async getClient(oDataCase) {
 

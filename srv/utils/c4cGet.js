@@ -7,7 +7,8 @@ async function c4cGet(path) {
       {
         method: "GET",
         headers: {
-          'x-csrf-token': 'fetch'
+          'x-csrf-token': 'Fetch',
+          'x-sap-crm-token': 'fetch'
         },
         url: path
       }

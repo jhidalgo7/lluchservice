@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "dependencies": {
-     "@sap/cds": "^9.4.4",
+    "@sap/cds": "^9.4.4",
     "@sap-cloud-sdk/http-client": "^3.18.0",
     "@sap/xsenv": "^6.0.0",
     "@sap/xssec": "~4.10.0",
     "express": "^4",
-    "@sap/cds-odata-v2-adapter-proxy":"1.9.21",
-    "sleep-promise":"9.1.0"
+    "@sap/cds-odata-v2-adapter-proxy": "1.9.21",
+    "sleep-promise": "9.1.0"
   },
   "devDependencies": {
     "@sap/cds-dk": "^9.4.3",
@@ -39,15 +39,8 @@
       "destino_c4c": {
         "kind": "rest",
         "credentials": {
-          "destination": "destino_c4c",
-          "forwardAuthToken": false,
+          "destination": "destino_c4c", 
           "requestTimeout": 300000
-        },
-        "csrf": false,
-        "csrfInBatch":false,
-        "pool": {
-          "min": 1,
-          "max": 10
         }
       }
     }
