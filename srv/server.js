@@ -56,7 +56,7 @@ cds.on("bootstrap", (app) => {
 
       // Ejecutamos el handler y registramos respuesta de modificación
       const responseModify = await handler(currentImage, beforeImage);
-      console.warn("Return caseAction", JSON.stringify(responseModify));
+      console.warn("Return caseAction", JSON.stringify(currentImage));
 
       // Patrón actual: devolver el currentImage; si necesitas devolver cambios aplicados, usa responseModify
       res.send({ data: currentImage });

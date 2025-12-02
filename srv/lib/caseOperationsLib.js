@@ -29,7 +29,8 @@ async function SalesArea_PartiesDeterAction(currentImage, beforeImage) {
     const accountNameCurrent = currentImage?.account?.name || "";
 
     // CREACIÓN DE CASO
-    if (isBeforeEmpty && (accountNameCurrent === "" || !accountNameCurrent.includes(constants.DUMMY))) {
+    //SE TIENE
+    if (!currentImage?.isDraftMode && isBeforeEmpty && (accountNameCurrent === "" || !accountNameCurrent.includes(constants.DUMMY))) {
       console.log("Ejecutando SalesAreaDetermination (Creación de caso)");
       const accountResponse = await getClient(currentImage);
       const oDataAccount = accountResponse?.data?.value;
