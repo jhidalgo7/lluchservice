@@ -27,7 +27,7 @@ async function SalesArea_PartiesDeterAction(currentImage, beforeImage) {
     // Verificamos si es creación (beforeImage vacío)
     const isBeforeEmpty = beforeImage == null || Object.keys(beforeImage).length === 0;
     const accountNameCurrent = currentImage?.account?.name || "";
-
+ 
     // CREACIÓN DE CASO
     //SE TIENE
     if (!currentImage?.isDraftMode && isBeforeEmpty && (accountNameCurrent === "" || !accountNameCurrent.includes(constants.DUMMY))) {
@@ -52,7 +52,7 @@ async function SalesArea_PartiesDeterAction(currentImage, beforeImage) {
       const salesAreaCurrent = currentImage?.extensions?.ZOrganizacion_de_ventas || "";
       if (salesAreaBefore !== salesAreaCurrent) {
         console.log("Ejecutando PartiesRedetAction");
-        await updatePartesImplicadas(null, currentImage, oDataAccount, dataModify);
+          await updatePartesImplicadas(null, currentImage, oDataAccount, dataModify);
       }
     }
     return dataModify;

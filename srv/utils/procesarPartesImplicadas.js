@@ -58,6 +58,8 @@ async function updatePartesImplicadas(caseId, oCase, oAccount, dataModify) {
     // Obtenemos el equipo de la cuenta y la organización de ventas del caso
     const team = oAccount.accountTeamMembers || [];
     const org = oCase.extensions?.ZOrganizacion_de_ventas;
+    //17.12.2025 COnversación con Nacho, si es "caseType":"ZREG" no debe realizar el cambio de processor
+    const caseTypeBoolean = oCase.caseType === "ZREG";
 
     // Buscamos miembros relevantes por rol
     const miembroAT146 = findMember(team, constants.role.rol146, org);
@@ -67,13 +69,15 @@ async function updatePartesImplicadas(caseId, oCase, oAccount, dataModify) {
         console.warn("No se encontraron miembros relevantes");
         return;
     }
-
     // Processor: actualizamos si existe miembro AT146
     const nuevoProcessor = { ...oCase.processor };
-    if (miembroAT146) {
-        nuevoProcessor.id = miembroAT146.employeeId;
-        dataModify.processor ??= {};
-        dataModify.processor.id = miembroAT146.employeeId;
+    if (!caseTypeBoolean) {
+        if (miembroAT146) {
+            nuevoProcessor.id = miembroAT146.employeeId;
+            dataModify.processor ??= {};
+            dataModify.processor.id = miembroAT146.employeeId;
+        }
+
     }
 
     // Custom Employees: clonamos lista y actualizamos roles
@@ -84,7 +88,7 @@ async function updatePartesImplicadas(caseId, oCase, oAccount, dataModify) {
     // PATCH: enviamos cambios a C4C si hay evento activo
     if (cds.evento) {
         const patchBody = {};
-        if (Object.keys(nuevoProcessor).length > 0) patchBody.processor = nuevoProcessor;
+        if (!caseTypeBoolean && Object.keys(nuevoProcessor).length > 0) patchBody.processor = nuevoProcessor;
         if (nuevosCustomEmployees.length > 0) patchBody.customEmployees = nuevosCustomEmployees;
 
         console.warn(`Se enviará el siguiente ${JSON.stringify(patchBody)}`);
