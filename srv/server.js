@@ -68,6 +68,73 @@ cds.on("bootstrap", (app) => {
   });
 
   /**
+   * POST /clientAction
+   * ---------------------------------------------------------
+   * End-point pensado para acciones de **posthook** 
+   * Flujo:
+   *  1) Lee { entity, currentImage, beforeImage } del body.
+   *  2) Selecciona el handler correspondiente a la entidad.
+   *  3) Ejecuta el handler con currentImage y beforeImage.
+   *  4) Devuelve el currentImage (el patrón actual de la app).
+   *
+   * Respuestas:
+   *  - 200: { data: currentImage }
+   *  - 400: entidad no soportada o body inválido
+   *  - 500: error interno al ejecutar la acción
+   * Respuesta
+   * {
+        "data": { },                        
+        "error": [                            
+                           {
+                                 "code": "",
+                                 "message": "",
+                                  "target": ""
+                              }
+                         ],
+       "info": [                         
+                         {
+                              "code": "",       
+                              "message": "",
+                               "target": "",
+                               "severity": "WARNING/INFO"
+                          },
+                 ]
+  }
+   */
+  app.post("/clientAction", async (req, res) => {
+    try {
+      cds.language = req.body.context.language;
+      // Validación básica del body para mejorar robustez
+      const { entity, currentImage, beforeImage } = req.body || {};
+      if (!entity || typeof currentImage !== "object") {
+        return res.status(400).send({ error: "Body inválido: se requiere 'entity' y 'currentImage'." });
+      }
+
+      console.log("Req Body clientAction:", JSON.stringify(req.body));
+
+      // Selección dinámica de handler por entidad
+      const handler = entityHandlers[entity];
+      if (!handler) {
+        return res.status(400).send({ error: `Entidad no soportada: ${entity}` });
+      }
+
+      // Ejecutamos el handler y registramos respuesta de modificación
+      const responseModify = await handler(currentImage, beforeImage);
+      if (!responseModify.valid) {
+        console.warn({ data: currentImage, error: responseModify.errors });
+        return res.send({ data: currentImage, error: responseModify.errors });
+      }
+      console.warn("Return clientAction", JSON.stringify(currentImage));
+      // Patrón actual: devolver el currentImage; si necesitas devolver cambios aplicados, usa responseModify
+      res.send({ noChanges: true });
+
+    } catch (error) {
+      console.error("Error al ejecutar clientAction:", error);
+      return res.status(500).send({ error: error.message || "Error interno" });
+    }
+  });
+
+  /**
    * POST /CaseEventAction
    * ---------------------------------------------------------
    * End-point para manejar **eventos de flujo** (autoflows/hooks) en modo **evento** (cds.evento = true).
