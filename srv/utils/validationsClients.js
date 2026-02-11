@@ -44,17 +44,17 @@ module.exports = {
                 // Exigir currency + salesOffice en TODAS las entries
                 salesCheckOk = salesArrangements.every((sa) => {
                     const currencyOk = !isEmpty(sa?.currency);
-                    const salesOfficeOk =
-                        !isEmpty(sa?.salesOfficeId) || !isEmpty(sa?.salesOfficeDisplayId);
-                    return currencyOk && salesOfficeOk;
+                 /*    const salesOfficeOk =
+                        !isEmpty(sa?.salesOfficeId) || !isEmpty(sa?.salesOfficeDisplayId); */
+                    return currencyOk ;//&& salesOfficeOk;
                 });
             } else {
                 // Basta con que haya AL MENOS UNA entry con ambos informados
                 salesCheckOk = salesArrangements.some((sa) => {
                     const currencyOk = !isEmpty(sa?.currency);
-                    const salesOfficeOk =
-                        !isEmpty(sa?.salesOfficeId) || !isEmpty(sa?.salesOfficeDisplayId);
-                    return currencyOk && salesOfficeOk;
+                    /* const salesOfficeOk =
+                        !isEmpty(sa?.salesOfficeId) || !isEmpty(sa?.salesOfficeDisplayId); */
+                    return currencyOk;// && salesOfficeOk;
                 });
             }
         }
